@@ -4,7 +4,8 @@
   "description": "A discord notification bot",
   "main": "app.js",
   "scripts": {
-    "start:dev": "nodemon app.js"
+    "start:dev": "nodemon app.js",
+    "start" : "node app.js"
   },
   "author": "Shubh Bhardwaj",
   "license": "ISC",

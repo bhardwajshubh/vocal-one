@@ -46,20 +46,20 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
     })
   }
 
-  if (oldMember.channel) {
-    const role = oldMember.guild.roles.cache.find(r => r.name.toLowerCase() === 'notify')
-    const memberIds = role.members.reduce((object, current) => {
-      if (current.id !== oldMember.member.id) {
-        object[current.id] = true
-      }
-      return object
-    }, {})
-    oldMember.guild.members.cache.forEach(member => {
-      if (memberIds[member.id]) {
-        member.send(`${newMember.member.displayName} left`)
-      }
-    })
-  }
+  // if (oldMember.channel) {
+  //   const role = oldMember.guild.roles.cache.find(r => r.name.toLowerCase() === 'notify')
+  //   const memberIds = role.members.reduce((object, current) => {
+  //     if (current.id !== oldMember.member.id) {
+  //       object[current.id] = true
+  //     }
+  //     return object
+  //   }, {})
+  //   oldMember.guild.members.cache.forEach(member => {
+  //     if (memberIds[member.id]) {
+  //       member.send(`${newMember.member.displayName} left`)
+  //     }
+  //   })
+  // }
 })
 
 client.login(process.env.DISCORD_TOKEN)

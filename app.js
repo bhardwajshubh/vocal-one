@@ -32,7 +32,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
     return
   }
   if (newMember.channel) {
-    const role = newMember.member.roles.cache.find(r => r.name.toLowerCase() === 'notify')
+    const role = newMember.guild.roles.cache.find(r => r.name.toLowerCase() === 'notify')
     const memberIds = role.members.reduce((object, current) => {
       if (current.id !== newMember.member.id) {
         object[current.id] = true
@@ -47,7 +47,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
   }
 
   if (oldMember.channel) {
-    const role = oldMember.member.roles.cache.find(r => r.name.toLowerCase() === 'notify')
+    const role = oldMember.guild.roles.cache.find(r => r.name.toLowerCase() === 'notify')
     const memberIds = role.members.reduce((object, current) => {
       if (current.id !== oldMember.member.id) {
         object[current.id] = true
